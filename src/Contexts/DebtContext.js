@@ -1,22 +1,22 @@
 import React, { Component } from 'react'
 
-const RecipeContext = React.createContext({
-  recipes: [],
+const DebtContext = React.createContext({
+  debts: [],
   error: null,
-  setError: () => {},
-  clearError: () => {},
-  setRecipe: () => {},
+  setError: () => { },
+  clearError: () => { },
+  setDebt: () => { },
 })
-export default RecipeContext
+export default DebtContext
 
-export class RecipeProvider extends Component {
+export class DebtProvider extends Component {
   state = {
-    recipes: [],
+    debts: [],
     error: null,
   };
 
-  setRecipe = recipes => {
-    this.setState({ recipes })
+  setDebt = debts => {
+    this.setState({ debts })
   }
 
   setError = error => {
@@ -30,16 +30,16 @@ export class RecipeProvider extends Component {
 
   render() {
     const contextValue = {
-      recipes: this.state.recipes,
+      debts: this.state.debts,
       error: this.state.error,
       setError: this.setError,
       clearError: this.clearError,
-      setRecipe: this.setRecipe,
+      setDebt: this.setDebt,
     }
     return (
-      <RecipeContext.Provider value={contextValue}>
+      <DebtContext.Provider value={contextValue}>
         {this.props.children}
-      </RecipeContext.Provider>
+      </DebtContext.Provider>
     )
   }
 }

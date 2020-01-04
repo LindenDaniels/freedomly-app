@@ -1,22 +1,22 @@
 import React from 'react'
-import IndividualRecipe from '../IndividualRecipe/IndividualRecipe'
-import RecipeService from '../Services/RecipeService'
-import RecipeContext from '../Contexts/RecipeContext'
+import IndividualDebt from '../IndividualDebt/IndividualDebt'
+import DebtService from '../Services/DebtService'
+import DebtContext from '../Contexts/DebtContext'
 
-class IndividualRecipeContainer extends React.Component {
-    static contextType = RecipeContext;
+class IndividualDebtContainer extends React.Component {
+    static contextType = DebtContext;
     
     componentDidMount() {
-      RecipeService.getRecipe(this.props.match.params.recipe_id)
-        .then(recipe => this.context.setRecipe([recipe]))
+      DebtService.getDebt(this.props.match.params.debt_id)
+        .then(debt => this.context.setDebt([debt]))
         .catch(this.context.setError)
     }
   
     render() {
-      const recipe = this.context.recipes.find(recipe => +recipe.id === +this.props.match.params.recipe_id)
-      return <IndividualRecipe {...recipe} />
+      const debt = this.context.debts.find(debt => +debt.id === +this.props.match.params.debt_id)
+      return <IndividualDebt {...debt} />
       
     }
   }
 
-  export default IndividualRecipeContainer;
+  export default IndividualDebtContainer;
