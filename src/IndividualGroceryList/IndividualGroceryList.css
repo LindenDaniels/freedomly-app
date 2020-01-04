@@ -1,0 +1,38 @@
+
+
+  .groceryList-items {
+      display: block;
+  }
+  
+  nav,
+  footer {
+    padding: 1% 0;
+    background-color: #aaa;
+  }
+  
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+  }
+  
+  .list-name:hover {
+    color: #7BC25C;
+  }
+  /*.list-section {
+    min-height: 200px;
+    padding: 30px 15px;
+  }*/
+  
+  
+  p {
+    margin: 0 auto;
+    max-width: 650px;
+  }
+  
+  p + p {
+    margin-top: 15px;
+  }
+  

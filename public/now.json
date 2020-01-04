@@ -1,0 +1,15 @@
+{
+    "version": 2,
+    "alias": "groceryplus-client",
+    "name": "groceryplus-client",
+    "routes": [
+        {
+          "src": "^/static/(.*)",
+          "dest": "/static/$1"
+        },
+        {
+          "src": ".*",
+          "dest": "/index.html"
+        }
+    ]
+  }

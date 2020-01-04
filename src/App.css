@@ -1,0 +1,45 @@
+* {
+  box-sizing: border-box;
+}
+
+header {
+  padding: 45px 15px;
+}
+
+body {
+  font-family: 'Barlow Condensed', sans-serif;
+
+  font-size: 20px;
+  background-color: #799CCC;
+  color: black;
+  text-align: center;
+  line-height: 1.5;
+  min-width: 320px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.nav-link {
+    margin-right: 15px;
+    color: #7BC25C;
+}
+
+.nav-link:hover {
+  color: #7EA2D9;
+}
+
+.NavBar {
+  padding: 1% 0;
+  background-color: #2D3A4D;
+  color: white;
+}
+
+.NavBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
