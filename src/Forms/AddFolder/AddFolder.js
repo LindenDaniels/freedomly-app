@@ -8,9 +8,9 @@ export default class AddFolder extends React.Component {
         super(props);
         this.state = {
             hasErrors: false,
-            folder_name: "",
+            title: "",
             formValid: false,
-            folder_nameValid: false,
+            titleValid: false,
             validationMessage: "",
         };
     }
@@ -22,20 +22,20 @@ export default class AddFolder extends React.Component {
     }
 
     updateFormEntry(e) {
-        const folder_name = e.target.name;
+        const name = e.target.name;
         const value = e.target.value;
         this.setState({
-            [e.target.folder_name]: e.target.value
-        }, () => { this.validateEntry(folder_name, value) });
+            [e.target.name]: e.target.value
+        }, () => { this.validateEntry(name, value) });
     }
 
-    validateEntry(folder_name, value) {
+    validateEntry(name, value) {
         let inputErrors;
         let hasErrors = this.state.hasErrors;
 
         value = value.trim();
         if (value < 1) {
-            inputErrors = `${folder_name} is required.`;
+            inputErrors = `${name} is required.`;
         }
 
         else {
@@ -44,14 +44,14 @@ export default class AddFolder extends React.Component {
         }
         this.setState({
             validationMessage: inputErrors,
-            [`${folder_name}Valid`]: !hasErrors,
+            [`${name}Valid`]: !hasErrors,
             hasErrors: !hasErrors
         }, this.formValid);
     }
 
     formValid() {
-        const { folder_nameValid } = this.state;
-        if (folder_nameValid === true) {
+        const { titleValid } = this.state;
+        if (titleValid === true) {
             this.setState({
                 formValid: true
             });
@@ -66,9 +66,9 @@ export default class AddFolder extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        const { folder_name } = this.state;
+        const { title } = this.state;
         const folder = {
-            name: folder_name
+            name: title
         }
 
         this.setState({ error: null })
@@ -102,19 +102,19 @@ export default class AddFolder extends React.Component {
         return (
             <>
                 <header>
-                    <h2>Add Folder</h2>
+                    <h1>Add Folder</h1>
                 </header>
                 <form
                     className="folder-form"
                     onSubmit={e => this.handleSubmit(e)}>
                     <h2 className="title">Add Folder</h2>
                     <div className="form-section">
-                        <label htmlFor="folder_name">Title</label>
+                        <label htmlFor="title">Title</label>
                         <input
                             type="text"
                             className="field"
-                            name="folder_name"
-                            id="folder_name"
+                            name="title"
+                            id="title"
                             aria-label="Title"
                             aria-required="true"
                             placeholder="Folder Title"
