@@ -29,13 +29,13 @@ export default class AddFolder extends React.Component {
         }, () => { this.validateEntry(folder_name, value) });
     }
 
-    validateEntry(name, value) {
+    validateEntry(folder_name, value) {
         let inputErrors;
         let hasErrors = this.state.hasErrors;
 
         value = value.trim();
         if (value < 1) {
-            inputErrors = `${name} is required.`;
+            inputErrors = `${folder_name} is required.`;
         }
 
         else {
@@ -44,7 +44,7 @@ export default class AddFolder extends React.Component {
         }
         this.setState({
             validationMessage: inputErrors,
-            [`${name}Valid`]: !hasErrors,
+            [`${folder_name}Valid`]: !hasErrors,
             hasErrors: !hasErrors
         }, this.formValid);
     }
