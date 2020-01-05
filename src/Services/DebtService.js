@@ -1,9 +1,9 @@
 import config from '../config'
 
-const ListService = {
+const DebtService = {
   
-  getLists() {
-    return fetch(`${config.API_ENDPOINT}/lists`, {
+  getDebts() {
+    return fetch(`${config.API_ENDPOINT}/debts`, {
       headers: {
       },
     })
@@ -14,9 +14,9 @@ const ListService = {
       )
   },
   
-  getList(list_id) {
+  getDebt(debt_id) {
     
-    return fetch(`${config.API_ENDPOINT}/lists/${list_id}`, {
+    return fetch(`${config.API_ENDPOINT}/folders/${debt_id}`, {
       headers: {
       },
     })
@@ -28,4 +28,4 @@ const ListService = {
   },
 }
 
-export default ListService
+export default DebtService

@@ -1,4 +1,4 @@
 
 export default {
-    API_ENDPOINT: `https://plus-server.herokuapp.com/api`,
+    API_ENDPOINT: `http://localhost:3000/api`,
 }

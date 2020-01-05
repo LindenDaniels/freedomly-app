@@ -50,7 +50,7 @@ class AddDebt extends React.Component {
         }, () => { this.validateEntry(debt_name, value) });
     }
 
-    validateEntry(debt_name, value) {
+    validateEntry(debt_name, debt_amount, value) {
         let hasErrors = false;
 
         value = value.trim();
@@ -99,12 +99,11 @@ class AddDebt extends React.Component {
         const debt = {
             debt_name: debt_name,
             debt_amount: debt_amount,
-            ingredients: ingredients,
             folderid: folderId,
         }
 
         this.setState({ error: null })
-        
+
 
 
         fetch(`${config.API_ENDPOINT}/debts`, {
@@ -179,7 +178,7 @@ class AddDebt extends React.Component {
                             aria-required="false"
                             onChange={e => this.updateFormEntry(e)} />
                     </div>
-                    
+
                     <div className="form-section">
                         <label htmlFor="folder-select">folder</label>
                         <select

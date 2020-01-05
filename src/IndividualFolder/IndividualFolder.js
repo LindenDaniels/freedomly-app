@@ -11,6 +11,7 @@ export default class IndividualFolder extends Component {
   
   render() {
     const { folder_name, id } = this.props
+   
     
     return (
       <Link to={`/folders/${id}`} className='folder'> 

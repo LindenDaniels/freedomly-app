@@ -1,23 +1,23 @@
 import React from 'react'
-import DisplayRecipesInFolder from './DisplayRecipesInFolder'
+import DisplayDebtsInFolder from './DisplayDebtsInFolder'
 import FolderContext from '../Contexts/FolderContext'
-import RecipeContext from '../Contexts/RecipeContext'
-import RecipeService from '../Services/RecipeService'
+import DebtContext from '../Contexts/DebtContext'
+import DebtService from '../Services/DebtService'
 
-class RecipesInFolder extends React.Component {
+class DebtsInFolder extends React.Component {
     static contextType = FolderContext;
-    static contextType = RecipeContext;
+    static contextType = DebtContext;
     
     componentDidMount() {
-        RecipeService.getRecipes(this.props.match.params.folder_id)
-          .then(recipes => this.context.setRecipe(recipes))
+        DebtService.getDebts(this.props.match.params.folder_id)
+          .then(debts => this.context.setDebt(debts))
           .catch(this.context.setError);
       }
   
     render() {
-        const recipes = this.context.recipes.filter(recipe => +recipe.folderid === +this.props.match.params.folder_id )
-        return recipes.map(recipe =>  <DisplayRecipesInFolder key={recipe.id} {...recipe} /> )
+        const debts = this.context.debts.filter(debt => +debt.folderid === +this.props.match.params.folder_id )
+        return debts.map(debt =>  <DisplayDebtsInFolder key={debt.id} {...debt} /> )
       }
   }
 
-  export default RecipesInFolder;
+  export default DebtsInFolder;

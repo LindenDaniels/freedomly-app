@@ -17,7 +17,7 @@ export default class FolderList extends Component {
 
   render() {
     const { folders = [] } = this.context;
-
+   
 
     return (
 
@@ -25,12 +25,12 @@ export default class FolderList extends Component {
         <IndividualFolder
           id={folder.id}
           key={folder.id}
-          name={folder.name}
-          aria-controls="groceryFolder__folder"
-          className='groceryFolder__grocery-link'
+          folder_name={folder.folder_name}
+          aria-controls="Folder List"
+          className='folder-list'
         />
-      )
-    )
+
+    ))
   }
 
 }

@@ -1,23 +1,23 @@
 import React, { Component } from 'react'
-import RecipeContext from '../Contexts/RecipeContext'
+import DebtContext from '../Contexts/DebtContext'
 import FolderContext from '../Contexts/FolderContext'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types';
-import './DisplayRecipesInFolder.css'
+import './DisplayDebtsInFolder.css'
 
-export default class DisplayRecipesInFolder extends Component {
+export default class DisplayDebtsInFolder extends Component {
   
-  static contextType = RecipeContext;
+  static contextType = DebtContext;
   static contextType = FolderContext;
   
   render() {
-    const { name, id, folderid} = this.props
+    const { debt_name, id, folderid} = this.props
     
     return (
-      <Link to={`/recipes/${folderid}/${id}`} className='recipe-name'> 
+      <Link to={`/folders/${folderid}/${id}`} className='debt-name'> 
        <>
        <header>
-           <h2 className='recipe-name-link'>{name}</h2>
+           <h2 className='debt-name-link'>{debt_name}</h2>
        </header>
         </>
         </Link>
@@ -26,6 +26,6 @@ export default class DisplayRecipesInFolder extends Component {
 }
 
   
-  DisplayRecipesInFolder.propType = {
+  DisplayDebtsInFolder.propType = {
     match: PropTypes.object.isRequired
   };
