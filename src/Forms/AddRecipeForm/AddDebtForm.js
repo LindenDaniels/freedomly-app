@@ -1,21 +1,19 @@
 import React from 'react';
 import { withRouter } from 'react-router'
-import './AddRecipeForm.css';
+import './AddDebtForm.css';
 import FolderContext from '../../Contexts/FolderContext';
 import FolderService from '../../Services/FolderService';
 import config from '../../config';
 
-class AddRecipe extends React.Component {
+class AddDebt extends React.Component {
     state = {
-        name: "",
-        instructions: "",
-        ingredients: "",
+        debt_name: "",
+        debt_amount: "",
         folderSelect: "",
         folderId: "",
         formValid: false,
-        nameValid: false,
-        instructionsValid: false,
-        ingredientsValid: false,
+        debt_nameValid: false,
+        debt_amountValid: false,
         folderSelectValid: false,
         validationMessage: null
     };
@@ -37,7 +35,7 @@ class AddRecipe extends React.Component {
     }
 
     updateFormEntry(e) {
-        const name = e.target.name;
+        const debt_name = e.target.debt_name;
         const value = e.target.value;
         let id;
         if (e.target.selectedOptions) {
@@ -47,16 +45,16 @@ class AddRecipe extends React.Component {
             })
         }
         this.setState({
-            [e.target.name]: e.target.value,
+            [e.target.debt_name]: e.target.value,
 
-        }, () => { this.validateEntry(name, value) });
+        }, () => { this.validateEntry(debt_name, value) });
     }
 
-    validateEntry(name, value) {
+    validateEntry(debt_name, value) {
         let hasErrors = false;
 
         value = value.trim();
-        if ((name === 'name') || (name === 'ingredients') || (name === 'instructions')) {
+        if ((debt_name === 'debt_name') || (debt_amount === 'debt_amount')) {
             if (value.length < 1) {
                 hasErrors = true
             }
@@ -66,7 +64,7 @@ class AddRecipe extends React.Component {
             }
         }
 
-        else if ((name === 'folderSelect') && (value === 'Select')) {
+        else if ((debt_name === 'folderSelect') && (value === 'Select')) {
             hasErrors = true
         }
 
@@ -75,13 +73,13 @@ class AddRecipe extends React.Component {
         }
 
         this.setState({
-            [`${name}Valid`]: !hasErrors,
+            [`${debt_name}Valid`]: !hasErrors,
         }, this.formValid);
     }
 
     formValid() {
-        const { nameValid, instructionsValid, ingredientsValid, folderSelectValid } = this.state;
-        if (nameValid && instructionsValid && ingredientsValid && folderSelectValid === true) {
+        const { debt_nameValid, debt_amountValid, folderSelectValid } = this.state;
+        if (debt_nameValid && debt_amountValid && folderSelectValid === true) {
             this.setState({
                 formValid: true,
                 validationMessage: null
@@ -97,10 +95,10 @@ class AddRecipe extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        const { name, instructions, ingredients, folderId } = this.state;
-        const recipe = {
-            name: name,
-            instructions: instructions,
+        const { debt_name, debt_amount, folderId } = this.state;
+        const debt = {
+            debt_name: debt_name,
+            debt_amount: debt_amount,
             ingredients: ingredients,
             folderid: folderId,
         }
@@ -109,9 +107,9 @@ class AddRecipe extends React.Component {
         
 
 
-        fetch(`${config.API_ENDPOINT}/recipes`, {
+        fetch(`${config.API_ENDPOINT}/debts`, {
             method: 'POST',
-            body: JSON.stringify(recipe),
+            body: JSON.stringify(debt),
             headers: {
                 'content-type': 'application/json'
             }
@@ -127,8 +125,8 @@ class AddRecipe extends React.Component {
                 return res.json()
             })
             .then(data => {
-                const recipeUrl = `/recipes/${data.folderid}`
-                this.props.history.push(recipeUrl);
+                const debtUrl = `/debts/${data.folderid}`
+                this.props.history.push(debtUrl);
                 this.setState({ error: null })
             })
             .catch(err => {
@@ -145,96 +143,49 @@ class AddRecipe extends React.Component {
                 <option
                     key={folder.id}
                     id={folder.id}>
-                    {folder.name}
+                    {folder.debt_name}
                 </option>
             )
         })
         return (
             <>
                 <header>
-                    <h2>Add Recipe</h2>
+                    <h2>Add Debt</h2>
                 </header>
 
                 <form
-                    className="addrecipe-form"
+                    className="adddebt-form"
                     onSubmit={e => this.handleSubmit(e)}>
-                    <h2 className="title">Add Recipe</h2>
+                    <h2 className="title">Add Debt</h2>
                     <div className="form-section">
-                        <label htmlFor="name">Recipe Name</label>
+                        <label htmlFor="debt_name">Debt Name</label>
                         <input
                             type="text"
                             className="field"
-                            name="name"
-                            id="name"
+                            debt_name="debt_name"
+                            id="debt_name"
                             aria-label="Name"
                             aria-required="true"
-                            placeholder="Recipe Name"
+                            placeholder="Debt Name"
                             onChange={e => this.updateFormEntry(e)} />
                     </div>
                     <div className="form-section">
-                        <label htmlFor="content">Instructions</label>
+                        <label htmlFor="content">Debt Amount</label>
                         <textarea
                             className="field"
-                            name="instructions"
-                            id="instructions"
-                            aria-label="Instructions"
+                            debt_name="debt_amount"
+                            id="debt_amount"
+                            aria-label="Debt Amount"
                             aria-required="false"
                             onChange={e => this.updateFormEntry(e)} />
                     </div>
-                    <div className="form-section">
-                        <label htmlFor="ingredients">Ingredients</label>
-                        <input
-                            type="text"
-                            className="field"
-                            name="ingredients"
-                            id="ingredients"
-                            aria-label="ingredients"
-                            aria-required="true"
-                            placeholder="Almond Milk"
-                            onChange={e => this.updateFormEntry(e)} />
-                        <input
-                            type="text"
-                            className="field"
-                            name="ingredients"
-                            id="ingredients-1"
-                            aria-label="ingredients"
-                            aria-required="true"
-                            placeholder="Almond Milk"
-                            onChange={e => this.updateFormEntry(e)} />
-                        <input
-                            type="text"
-                            className="field"
-                            name="ingredients"
-                            id="ingredients-2"
-                            aria-label="ingredients"
-                            aria-required="true"
-                            placeholder="Almond Milk"
-                            onChange={e => this.updateFormEntry(e)} />
-                        <input
-                            type="text"
-                            className="field"
-                            name="ingredients"
-                            id="ingredients-3"
-                            aria-label="ingredients"
-                            aria-required="true"
-                            placeholder="Almond Milk"
-                            onChange={e => this.updateFormEntry(e)} />
-                        <input
-                            type="text"
-                            className="field"
-                            name="ingredients"
-                            id="ingredients-4"
-                            aria-label="ingredients"
-                            aria-required="true"
-                            placeholder="Almond Milk"
-                            onChange={e => this.updateFormEntry(e)} />
-                    </div>
+                    
                     <div className="form-section">
                         <label htmlFor="folder-select">folder</label>
                         <select
                             type="text"
                             className="field"
-                            name="folderSelect"
+                            debt_name="folderSelect"
                             id="folder-select"
                             aria-label="folder"
                             aria-required="true"
@@ -264,5 +215,5 @@ class AddRecipe extends React.Component {
     }
 }
 
-export default withRouter(AddRecipe)
+export default withRouter(AddDebt)
 

@@ -4,45 +4,34 @@ import { NavLink } from 'react-router-dom';
 
 export default class NavBar extends Component {
 
-    render() {
-  
-      return (
-        <div className='NavBar'>
-            <NavLink
-                className='nav-link'
-                to='/'>
-                    Home
+  render() {
+
+    return (
+      <div className='NavBar'>
+        <NavLink
+          className='nav-link'
+          to='/'>
+          Home
             </NavLink>
-          
-            <NavLink
-              className='nav-link'
-              to='/add-recipe'>
-                Add Recipe
+
+        <NavLink
+          className='nav-link'
+          to='/add-debt'>
+          Add Debt
             </NavLink>
-            <NavLink
-              className='nav-link'
-              to='/add-folder'>
-                Add Folder
+        <NavLink
+          className='nav-link'
+          to='/add-folder'>
+          Add Folder
 
             </NavLink>
-            <NavLink
-               className='nav-link'
-               to='/recipes'>
-                   Recipe List
+        <NavLink
+          className='nav-link'
+          to='/folders'>
+          Folder List
             </NavLink>
-            <NavLink
-               className='nav-link'
-               to='/create-grocery-list'>
-                   Add Grocery List
-            </NavLink>
-            <NavLink
-               className='nav-link'
-               to='/lists'>
-                   Grocery Lists
-            </NavLink> 
-          
-        </div>
+      </div>
 
-      )
-    }
+    )
   }
+}

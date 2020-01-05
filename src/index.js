@@ -2,20 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter }  from 'react-router-dom';
 import App from './App';
-import { ListProvider } from './Contexts/ListContext';
 import { FolderProvider } from './Contexts/FolderContext';
-import { RecipeProvider } from './Contexts/RecipeContext';
+import { DebtProvider } from './Contexts/DebtContext';
 import './index.css';
 
 ReactDOM.render(
     <FolderProvider>
-    <RecipeProvider>
-    <ListProvider>
+    <DebtProvider>
     <BrowserRouter>
     <App />,
     </BrowserRouter>
-    </ListProvider>
-    </RecipeProvider>
+    </DebtProvider>
     </FolderProvider>,
     document.getElementById('root')
   );

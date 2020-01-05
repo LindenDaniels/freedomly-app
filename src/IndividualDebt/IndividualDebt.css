@@ -1,9 +1,4 @@
 
-
-  .groceryList-items {
-      display: block;
-  }
-  
   nav,
   footer {
     padding: 1% 0;
@@ -18,14 +13,16 @@
     z-index: 10;
   }
   
-  .list-name:hover {
-    color: #7BC25C;
-  }
-  /*.list-section {
+
+  
+  .debts {
     min-height: 200px;
     padding: 30px 15px;
-  }*/
+    
+  }
   
+ 
+
   
   p {
     margin: 0 auto;
@@ -35,4 +32,3 @@
   p + p {
     margin-top: 15px;
   }
-  

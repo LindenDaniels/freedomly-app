@@ -10,13 +10,13 @@ export default class IndividualFolder extends Component {
   
   
   render() {
-    const { name, id } = this.props
+    const { folder_name, id } = this.props
     
     return (
-      <Link to={`/recipes/${id}`} className='folder'> 
+      <Link to={`/folders/${id}`} className='folder'> 
        <>
        <header>
-           <h2>{name}</h2>
+           <h2>{folder_name}</h2>
        </header>
         </>
         </Link>
