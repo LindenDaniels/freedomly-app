@@ -17,7 +17,7 @@ export default class FolderList extends Component {
 
   render() {
     const { folders = [] } = this.context;
-   
+    console.log(folders[0])
 
     return (
 
@@ -25,7 +25,7 @@ export default class FolderList extends Component {
         <IndividualFolder
           id={folder.id}
           key={folder.id}
-          folder_name={folder.folder_name}
+          folder_name={folder.name}
           aria-controls="Folder List"
           className='folder-list'
         />
