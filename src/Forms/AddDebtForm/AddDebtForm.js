@@ -7,12 +7,12 @@ import config from '../../config';
 
 class AddDebt extends React.Component {
     state = {
-        debt_name: "",
+        //name: "",
         debt_amount: "",
         folderSelect: "",
         folderId: "",
         formValid: false,
-        debt_nameValid: false,
+        //nameValid: false,
         debt_amountValid: false,
         folderSelectValid: false,
         validationMessage: null
@@ -35,9 +35,7 @@ class AddDebt extends React.Component {
     }
 
     updateFormEntry(e) {
-
-        const debt_name = e.target.debt_name;
-        const debt_amount = e.target.debt_amount;
+        const name = e.target.name;
         const value = e.target.value;
         let id;
         if (e.target.selectedOptions) {
@@ -47,21 +45,16 @@ class AddDebt extends React.Component {
             })
         }
         this.setState({
-            [e.target.debt_name]: e.target.value,
+            [e.target.name]: e.target.value,
 
-        }, () => {
-
-            const x = value;
-            const y = debt_name;
-            debugger;
-            this.validateEntry(debt_name, debt_amount, value)
-        });
+        }, () => { this.validateEntry(name, value) });
     }
 
-    validateEntry(debt_name, debt_amount, value) {
+    validateEntry(name, value) {
         let hasErrors = false;
+
         value = value.trim();
-        if ((debt_name === 'debt_name') || (debt_amount === 'debt_amount')) {
+        if ((name === 'name') || (name === 'debt_amount')) {
             if (value.length < 1) {
                 hasErrors = true
             }
@@ -71,7 +64,7 @@ class AddDebt extends React.Component {
             }
         }
 
-        else if ((debt_name === 'folderSelect') && (value === 'Select')) {
+        else if ((name === 'folderSelect') && (value === 'Select')) {
             hasErrors = true
         }
 
@@ -80,7 +73,7 @@ class AddDebt extends React.Component {
         }
 
         this.setState({
-            [`${debt_name}Valid`]: !hasErrors,
+            [`${name}Valid`]: !hasErrors,
         }, this.formValid);
     }
 
@@ -110,7 +103,7 @@ class AddDebt extends React.Component {
         }
 
         this.setState({ error: null })
-
+        
 
 
         fetch(`${config.API_ENDPOINT}/debts`, {
@@ -149,14 +142,14 @@ class AddDebt extends React.Component {
                 <option
                     key={folder.id}
                     id={folder.id}>
-                    {folder.debt_name}
+                    {folder.name}
                 </option>
             )
         })
         return (
             <>
                 <header>
-                    <h2>Add Debt</h2>
+                    <h2 className="adddebt-header">Add Debt</h2>
                 </header>
 
                 <form
@@ -164,11 +157,11 @@ class AddDebt extends React.Component {
                     onSubmit={e => this.handleSubmit(e)}>
                     <h2 className="title">Add Debt</h2>
                     <div className="form-section">
-                        <label htmlFor="debt_name">Debt Name</label>
+                        <label htmlFor="name">Debt Name</label>
                         <input
                             type="text"
                             className="field"
-                            debt_name="debt_name"
+                            name="debt_name"
                             id="debt_name"
                             aria-label="Name"
                             aria-required="true"
@@ -179,19 +172,19 @@ class AddDebt extends React.Component {
                         <label htmlFor="content">Debt Amount</label>
                         <textarea
                             className="field"
-                            debt_amount="debt_amount"
+                            name="debt_amount"
                             id="debt_amount"
                             aria-label="Debt Amount"
                             aria-required="false"
                             onChange={e => this.updateFormEntry(e)} />
                     </div>
-
+                   
                     <div className="form-section">
                         <label htmlFor="folder-select">Folder</label>
                         <select
                             type="text"
                             className="field"
-                            debt_name="folderSelect"
+                            name="folderSelect"
                             id="folder-select"
                             aria-label="folder"
                             aria-required="true"
