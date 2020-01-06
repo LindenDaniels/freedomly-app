@@ -35,7 +35,9 @@ class AddDebt extends React.Component {
     }
 
     updateFormEntry(e) {
+        
         const debt_name = e.target.debt_name;
+        const debt_amount = e.target.debt_amount;
         const value = e.target.value;
         let id;
         if (e.target.selectedOptions) {
@@ -47,12 +49,18 @@ class AddDebt extends React.Component {
         this.setState({
             [e.target.debt_name]: e.target.value,
 
-        }, () => { this.validateEntry(debt_name, value) });
+        }, () => { 
+           
+            const x = value;
+            const y = debt_name;
+            debugger;
+            this.validateEntry(debt_name, debt_amount, value) 
+        });
     }
 
     validateEntry(debt_name, debt_amount, value) {
         let hasErrors = false;
-
+debugger;
         value = value.trim();
         if ((debt_name === 'debt_name') || (debt_amount === 'debt_amount')) {
             if (value.length < 1) {
