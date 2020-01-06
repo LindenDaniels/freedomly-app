@@ -8,9 +8,9 @@ export default class AddFolder extends React.Component {
         super(props);
         this.state = {
             hasErrors: false,
-            title: "",
+            folder_name: "",
             formValid: false,
-            titleValid: false,
+            folder_nameValid: false,
             validationMessage: "",
         };
     }
@@ -22,6 +22,7 @@ export default class AddFolder extends React.Component {
     }
 
     updateFormEntry(e) {
+        console.log(e.target.name)
         const name = e.target.name;
         const value = e.target.value;
         this.setState({
@@ -50,8 +51,8 @@ export default class AddFolder extends React.Component {
     }
 
     formValid() {
-        const { titleValid } = this.state;
-        if (titleValid === true) {
+        const { folder_nameValid } = this.state;
+        if (folder_nameValid === true) {
             this.setState({
                 formValid: true
             });
@@ -66,9 +67,9 @@ export default class AddFolder extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        const { title } = this.state;
+        const { folder_name } = this.state;
         const folder = {
-            name: title
+            folder_name
         }
 
         this.setState({ error: null })
@@ -109,12 +110,12 @@ export default class AddFolder extends React.Component {
                     onSubmit={e => this.handleSubmit(e)}>
                     <h2 className="title">Add Folder</h2>
                     <div className="form-section">
-                        <label htmlFor="title">Title</label>
+                        <label htmlFor="folder_name">Title</label>
                         <input
                             type="text"
                             className="field"
-                            name="title"
-                            id="title"
+                            name="folder_name"
+                            id="folder_name"
                             aria-label="Title"
                             aria-required="true"
                             placeholder="Folder Title"
