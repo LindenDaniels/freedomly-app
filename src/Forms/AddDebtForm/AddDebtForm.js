@@ -119,7 +119,7 @@ class AddDebt extends React.Component {
                 return res.json()
             })
             .then(data => {
-                const debtUrl = `/debts/folders/${data.folderid}`
+                const debtUrl = `/folders/${data.folderid}`
                 this.props.history.push(debtUrl);
                 this.setState({ error: null })
             })
