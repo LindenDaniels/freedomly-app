@@ -25,7 +25,7 @@ export default class FolderList extends Component {
         <IndividualFolder
           id={folder.id}
           key={folder.id}
-          folder_name={folder.name}
+          folder_name={folder.folder_name}
           aria-controls="Folder List"
           className='folder-list'
         />

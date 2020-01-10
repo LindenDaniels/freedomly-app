@@ -7,12 +7,10 @@ import config from '../../config';
 
 class AddDebt extends React.Component {
     state = {
-        //name: "",
         debt_amount: "",
         folderSelect: "",
         folderId: "",
         formValid: false,
-        //nameValid: false,
         debt_amountValid: false,
         folderSelectValid: false,
         validationMessage: null
@@ -26,9 +24,6 @@ class AddDebt extends React.Component {
             .then(this.context.setFolder)
             .catch(this.context.setError)
     }
-
-
-
 
     goBack = () => {
         this.props.history.goBack();
@@ -124,7 +119,7 @@ class AddDebt extends React.Component {
                 return res.json()
             })
             .then(data => {
-                const debtUrl = `/debts/${data.folderid}`
+                const debtUrl = `/debts/folders/${data.folderid}`
                 this.props.history.push(debtUrl);
                 this.setState({ error: null })
             })
@@ -142,7 +137,7 @@ class AddDebt extends React.Component {
                 <option
                     key={folder.id}
                     id={folder.id}>
-                    {folder.name}
+                    {folder.folder_name}
                 </option>
             )
         })
@@ -182,7 +177,7 @@ class AddDebt extends React.Component {
                     <div className="form-section">
                         <label htmlFor="folder-select">Folder</label>
                         <select
-                            type="text"
+                            type="number"
                             className="field"
                             name="folderSelect"
                             id="folder-select"
