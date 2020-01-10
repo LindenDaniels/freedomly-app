@@ -17,7 +17,6 @@ export default class FolderList extends Component {
 
   render() {
     const { folders = [] } = this.context;
-    console.log(folders[0])
 
     return (
 

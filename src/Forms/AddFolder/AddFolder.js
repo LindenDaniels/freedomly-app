@@ -92,8 +92,8 @@ export default class AddFolder extends React.Component {
             .then(data => {
                 this.goBack()
                 this.context.addFolder(data)
-                const debtUrl = `/folders/${data.folderid}`
-                this.props.history.push(debtUrl);
+                /*const debtUrl = `/folders/${data.folderid}`
+                this.props.history.push(debtUrl);*/
             })
             .catch(error => {
                 this.setState({ error })
