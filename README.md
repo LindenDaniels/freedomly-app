@@ -1,7 +1,7 @@
 <h1>Freedomly</h1>
 
 <a href="https://freedomly-app.now.sh/">Live App</a><br/>
-<a href="https://github.com/LindenDaniels/freedomly-api"</a><br/>
+<a href="https://github.com/LindenDaniels/freedomly-api">API Repo</a><br/>
 
 <h2>Summary</h2>
 
