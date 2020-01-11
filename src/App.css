@@ -23,6 +23,9 @@ a {
     margin-right: 15px;
     color: #A3D0D6;
 }
+.nav-link img {
+  margin-right: 10px;
+}
 
 .nav-link:hover {
   color: #F0F3BD;

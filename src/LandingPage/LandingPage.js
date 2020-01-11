@@ -32,5 +32,6 @@ export default function LandingPage() {
         <p><img src="https://i.ibb.co/VpgjJnZ/Screen-Shot-2020-01-10-at-8-59-11-PM.png" alt="Add list of debts"></img></p>
         <p className='landing-p'>You can then view your list of debts!</p>
       </section>
+      <footer><a href="https://icons8.com/icon/41649/folder">Folder icon by Icons8</a></footer>
     </>
   )}
