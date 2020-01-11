@@ -1,24 +1,14 @@
+section {
+  min-height: 200px;
+  padding: 30px 15px;
+}
 
-  section {
-    min-height: 200px;
-    padding: 30px 15px;
-    background-color: #00BFE0;
-  }
-  
-  .recipe-name-link:hover {
-    color: #7BC25C;
-  }
-  /*
-  
-  p {
-    margin: 0 auto;
-    max-width: 650px;
-  }
-  
-  p + p {
-    margin-top: 15px;
-  }
+.debt-name-link:hover {
+  color: #F0F3BD;
+}
 
-  ul {
-      list-style: none;
-  }
+.debt-name, .debt-name-link {
+  border: 3px solid #7BC25C;
+  border-radius: 8px;
+
+}

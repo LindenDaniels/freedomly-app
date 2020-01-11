@@ -16,7 +16,7 @@ export default class DisplayDebtsInFolder extends Component {
     return (
       <Link to={`/folders/${folderid}/${id}`} className='debt-name'> 
        <>
-       <header>
+       <header className='debt-header'>
            <h2 className='debt-name-link'>{debt_name}</h2>
        </header>
         </>

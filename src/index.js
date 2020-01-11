@@ -10,7 +10,7 @@ ReactDOM.render(
     <FolderProvider>
     <DebtProvider>
     <BrowserRouter>
-    <App />,
+    <App />
     </BrowserRouter>
     </DebtProvider>
     </FolderProvider>,

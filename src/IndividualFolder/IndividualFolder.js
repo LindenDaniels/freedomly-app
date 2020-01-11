@@ -17,7 +17,7 @@ export default class IndividualFolder extends Component {
       <Link to={`/folders/${id}`} className='folder'> 
        <>
        <header>
-           <h2>{folder_name}</h2>
+           <h2 className='folder-name'>{folder_name}</h2>
        </header>
         </>
         </Link>

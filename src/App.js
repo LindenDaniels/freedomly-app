@@ -25,7 +25,6 @@ class App extends Component {
     return (
       <div className="App">
         <NavBar className="nav-bar" />
-
         <div className="content" aria-live="polite">
           <Switch>
             <Route exact path="/" component={LandingPage} />

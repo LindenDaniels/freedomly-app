@@ -12,13 +12,13 @@ export default class IndividualDebt extends Component {
     
     return (
        <>
-       <header>
+       <header className='individual-debt-header'>
            <h2 className='debt-name'>{debt_name}</h2>
        </header>
         <section className='debts'> 
           <ul>
               <li key={id} className='debt-items'>
-               {debt_amount}
+               ${debt_amount}
               </li>
           </ul>
         </section>

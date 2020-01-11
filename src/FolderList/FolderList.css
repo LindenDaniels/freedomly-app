@@ -1,0 +1,10 @@
+.folder-list {
+    padding-top: 110px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+a.folder {
+    margin-top: 20px;
+}

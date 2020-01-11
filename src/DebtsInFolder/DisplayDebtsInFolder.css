@@ -1,4 +1,7 @@
+.debt-header {
+    padding: 15px 10px;
+}
+
 .debt-name-link:hover {
-    color:  #7BC25C;
-     
+    color:  #F0F3BD;    
 }

@@ -16,7 +16,7 @@ const DebtService = {
   
   getDebt(debt_id) {
     
-    return fetch(`${config.API_ENDPOINT}/folders/${debt_id}`, {
+    return fetch(`${config.API_ENDPOINT}/debts/${debt_id}`, {
       headers: {
       },
     })

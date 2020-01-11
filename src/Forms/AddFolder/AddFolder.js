@@ -22,7 +22,6 @@ export default class AddFolder extends React.Component {
     }
 
     updateFormEntry(e) {
-        console.log(e.target.name)
         const name = e.target.name;
         const value = e.target.value;
         this.setState({
@@ -92,8 +91,8 @@ export default class AddFolder extends React.Component {
             .then(data => {
                 this.goBack()
                 this.context.addFolder(data)
-                /*const debtUrl = `/folders/${data.folderid}`
-                this.props.history.push(debtUrl);*/
+                const debtUrl = `/folders/${data.folderid}`
+                this.props.history.push(debtUrl);
             })
             .catch(error => {
                 this.setState({ error })
@@ -110,7 +109,6 @@ export default class AddFolder extends React.Component {
                 <form
                     className="folder-form"
                     onSubmit={e => this.handleSubmit(e)}>
-                    <h2 className="title">Add Folder</h2>
                     <div className="form-section">
                         <label htmlFor="folder_name">Title</label>
                         <input

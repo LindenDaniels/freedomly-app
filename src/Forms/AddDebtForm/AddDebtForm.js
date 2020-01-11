@@ -144,13 +144,12 @@ class AddDebt extends React.Component {
         return (
             <>
                 <header>
-                    <h2 className="adddebt-header">Add Debt</h2>
+                    <h1 className="adddebt-header">Add Debt</h1>
                 </header>
 
                 <form
                     className="adddebt-form"
                     onSubmit={e => this.handleSubmit(e)}>
-                    <h2 className="title">Add Debt</h2>
                     <div className="form-section">
                         <label htmlFor="name">Debt Name</label>
                         <input
@@ -165,7 +164,8 @@ class AddDebt extends React.Component {
                     </div>
                     <div className="form-section">
                         <label htmlFor="content">Debt Amount</label>
-                        <textarea
+                        <input
+                            type="number"
                             className="field"
                             name="debt_amount"
                             id="debt_amount"
@@ -177,7 +177,7 @@ class AddDebt extends React.Component {
                     <div className="form-section">
                         <label htmlFor="folder-select">Folder</label>
                         <select
-                            type="number"
+                            type="text"
                             className="field"
                             name="folderSelect"
                             id="folder-select"

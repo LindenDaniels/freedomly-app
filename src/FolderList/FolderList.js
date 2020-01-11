@@ -19,17 +19,18 @@ export default class FolderList extends Component {
     const { folders = [] } = this.context;
 
     return (
-
-      folders.map(folder =>
+      <section className="folder-list">
+      {folders.map(folder =>
         <IndividualFolder
           id={folder.id}
           key={folder.id}
           folder_name={folder.folder_name}
           aria-controls="Folder List"
           className='folder-list'
-        />
-
-    ))
+        />)
+      }
+      </section>
+    )
   }
 
 }
