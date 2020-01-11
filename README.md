@@ -1,28 +1,30 @@
-Grocery Plus
+<h1>Freedomly</h1>
 
-Live App
-https://groceryplus-client-axbvh50t7.now.sh/
+<a href="https://freedomly-app.now.sh/">Live</a><br/>
+<a href="https://github.com/LindenDaniels/freedomly-api"</a><br/>
 
-API
-https://github.com/LindenDaniels/plus-server
 
 Summary
 
-Grocery Plus is an application that allows you to create your own recipes, and add groceries and non-grocery items to a grocery list.
+Freedomly is an application that lets you track your debt. You can add folders, and add debts to the folders you create.
 
-Technology Used: React, JavaScript, HTML, CSS.
+Technology Used: React, Node, Express, HTML, CSS.
 
 Landing Page
 
-<img src="https://i.ibb.co/Fnh3Njs/Screen-Shot-2020-01-02-at-2-26-27-PM.png" alt="landing page" border="0">
+<img src="https://i.ibb.co/1rYPKcp/Screen-Shot-2020-01-10-at-11-51-13-PM.png" alt="Landing Page" border="0">
 
-Recipe Folders
+Folder List
 
-<img src="https://i.ibb.co/CHTYMS2/Screen-Shot-2020-01-02-at-2-27-02-PM.png" alt="recipe folders" border="0">
+<img src="https://i.ibb.co/2jYv4ZK/Screen-Shot-2020-01-10-at-11-54-04-PM.png" alt="Folder List" border="0">
 
-Grocery Lists
+Debt List
 
-<img src="https://i.ibb.co/t80RMyx/Screen-Shot-2020-01-02-at-2-26-51-PM.png" alt="grocery lists" border="0">
+<img src="https://i.ibb.co/1Kf7gjV/Screen-Shot-2020-01-10-at-11-55-14-PM.png" alt="Debt List" border="0">
+
+Individual Debt
+
+<img src="https://i.ibb.co/HTY1k4v/Screen-Shot-2020-01-10-at-11-55-25-PM.png" alt="Individual Debt" border="0">
 
 
 
